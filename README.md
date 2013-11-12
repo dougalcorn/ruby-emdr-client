@@ -14,7 +14,7 @@ locally on their computer. This cache can be parsed and uploaded
 through various
 [clients](http://dev.eve-central.com/unifieduploader/implementations).
 
-!(https://pbs.twimg.com/media/BYzDsJYIcAEYVwo.jpg:large)
+![is it live, or memorex?](https://pbs.twimg.com/media/BYzDsJYIcAEYVwo.jpg:large)
 
 This is "drinking from the fire hose". I have seen the messages come
 in at over 20 a second. There are two types of messages: orders and
