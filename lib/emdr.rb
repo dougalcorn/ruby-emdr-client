@@ -15,7 +15,7 @@ class Emdr
   end
 
   def run
-    @start = Time.now
+    @time_stamp = Time.now
     puts "Starting EMDR Client"
     async.output_message_rate
     loop { async.handle_message! next_message }
@@ -27,9 +27,12 @@ class Emdr
 
   def output_message_rate
     loop do
-      sleep 30
-      time_running = Time.now - @start
+      sleep 15
+      time_running = Time.now - @time_stamp
       rate = @message_count / time_running
+      @message_count = 0
+      @time_stamp = Time.now
+
       puts "Receiving #{rate} messages/sec"
     end
 
@@ -44,11 +47,12 @@ class Emdr
     # Unified Uploader Data Interchange Format
     # http://dev.eve-central.com/unifieduploader/start
     @message_count += 1
-    puts "Message from #{json['generator']['name']}/#{json['generator']['version']} of type #{json['resultType']} from #{json['currentTime']}"
+    # puts "Message from #{json['generator']['name']}/#{json['generator']['version']} of type #{json['resultType']} from #{json['currentTime']}"
   end
 
   def decode(data)
-    JSON.parse(Zlib::Inflate.new(Zlib::MAX_WBITS).inflate(data))
+    #JSON.parse(Zlib::Inflate.new(Zlib::MAX_WBITS).inflate(data))
+    data
   end
 
   def relays
