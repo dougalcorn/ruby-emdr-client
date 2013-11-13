@@ -77,6 +77,11 @@ every 30 seconds:
 Receiving 9.766227349206408 messages/sec
 ```
 
+### Go Faster!
+
+I've commented out [printing the message receipt](https://github.com/dougalcorn/ruby-emdr-client/blob/master/lib/emdr.rb#L50). 
+Turns out printing to the terminal is very time consuming. As it stands now, it's basically just a measure of how 
+fast Celluloid can receive messages from ZeroMQ.
 
 ## Contributing
 
